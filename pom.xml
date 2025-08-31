@@ -11,6 +11,7 @@
     <groupId>top.laterya</groupId>
     <artifactId>spring-ai-exploration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>spring-ai-exploration</name>
     <description>spring-ai-exploration</description>
     <url>https://github.com/laterya/spring-ai-exploration</url>
@@ -27,6 +28,9 @@
             <email>2429862664@qq.com</email>
         </developer>
     </developers>
+    <modules>
+        <module>spring-ai-alibaba-examples</module>
+    </modules>
     <scm>
         <connection>scm:git:git://github.com/laterya/spring-ai-exploration.git</connection>
         <developerConnection>scm:git:ssh://github.com/laterya/spring-ai-exploration.git</developerConnection>
@@ -36,18 +40,22 @@
     <properties>
         <java.version>21</java.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud.ai</groupId>
+                <artifactId>spring-ai-alibaba-bom</artifactId>
+                <version>1.0.0.2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.32</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
